@@ -8,6 +8,11 @@ const getEntries = (): DiaryEntry[] => {
   return diaries;
 };
 
+const findById = (id: number): DiaryEntry | undefined => {
+  const diary = diaries.find((d) => d.id === id);
+  return diary;
+};
+
 const getNonSensitiveEntries = (): NonSensitiveDiaryEntry[] => {
   return diaries.map(({ id, date, weather, visibility }) => ({
     id,
@@ -21,4 +26,4 @@ const addDiary = () => {
   return null;
 };
 
-export default { getEntries, addDiary, getNonSensitiveEntries };
+export default { getEntries, addDiary, getNonSensitiveEntries, findById };
